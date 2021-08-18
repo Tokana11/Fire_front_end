@@ -1,10 +1,11 @@
 import {Component} from "react";
-import {Container, FormControl, InputGroup} from "react-bootstrap";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faSearch} from "@fortawesome/free-solid-svg-icons";
+import {Button, Container, FormControl, InputGroup} from "react-bootstrap";
 import Header from "../components/Header";
 import Cards from "../components/Cards";
 import Navigation from "../components/Navigation";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faPlus, faSearch, faTruck} from "@fortawesome/free-solid-svg-icons";
+import TruckModal from "../components/TruckModal";
 
 const cards = (
     [{
@@ -38,10 +39,30 @@ const cards = (
 );
 
 class Vehicle extends Component {
-    state = {
-        cards: [],
-        query: ''
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            cards: [],
+            query: '',
+            modalShow: false
+        }
+        this.modalOpen = this.modalOpen.bind(this);
+        this.hideModal = this.hideModal.bind(this);
     }
+
+    modalOpen() {
+        this.setState({
+            modalShow: true
+        })
+    }
+
+    hideModal() {
+        this.setState({
+            modalShow: false
+        })
+    }
+
 
     render() {
         return (
@@ -68,6 +89,18 @@ class Vehicle extends Component {
                             <Cards cards={cards.filter(({regNumber}) => regNumber.toLowerCase()
                                 .search(this.state.query.toLowerCase()) !== -1)}/>
                         }
+
+                        <Button className={"add-truck-btn"}
+                                variant={"action-secondary"}
+                                onClick={this.modalOpen}
+                        >
+                            <FontAwesomeIcon icon={faPlus}/>{" "}
+                            <FontAwesomeIcon icon={faTruck}/>
+                        </Button>
+
+                        <TruckModal show={this.state.modalShow}
+                                    onHide={this.hideModal}
+                        />
                     </Container>
                 </Container>
             </>

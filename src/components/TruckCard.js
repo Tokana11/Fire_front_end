@@ -17,8 +17,8 @@ const TruckCard = ({card}) => {
             </Card.Body>
             <ListGroup className="list-group-flush">
                 <ListGroupItem>
-                    <Button variant="outline-info" size={"lg"}>
-                        ТТД <FontAwesomeIcon icon={faQuestionCircle}/>
+                    <Button variant="outline-info" size={"sm"}>
+                        ТТД  <FontAwesomeIcon icon={faQuestionCircle}/>
                         {/*TODO possible to use accordion*/}
                     </Button>
                 </ListGroupItem>
@@ -26,7 +26,7 @@ const TruckCard = ({card}) => {
             <Card.Body>
                 <Row>
                     <Col>
-                        <Button variant="outline-success" size="md">
+                        <Button variant="outline-primary" size="md">
                            Редак.  <FontAwesomeIcon icon={faEdit}/>
                         </Button>
                     </Col>
