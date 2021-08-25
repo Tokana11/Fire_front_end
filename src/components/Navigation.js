@@ -1,30 +1,34 @@
 import {Nav} from "react-bootstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faTruck} from "@fortawesome/free-solid-svg-icons";
-import {faOilCan} from "@fortawesome/free-solid-svg-icons";
-import {faTools} from "@fortawesome/free-solid-svg-icons";
-import {faGasPump} from "@fortawesome/free-solid-svg-icons";
+import {faGasPump, faOilCan, faTools, faTruck} from "@fortawesome/free-solid-svg-icons";
+import {useLocation, useRouteMatch} from "react-router-dom";
 
 const Navigation = () => {
+
+    const {url} = useRouteMatch();
+
+    const {pathname} = useLocation();
+
+
     return (
-        <Nav justify variant="tabs" defaultActiveKey="/vehicle">
+        <Nav justify variant="tabs">
             <Nav.Item>
-                <Nav.Link style={{color:"gray"}} href="/vehicle">
+                <Nav.Link style={{color: "gray"}} active={pathname === url} href={`${url}`}>
                     <FontAwesomeIcon icon={faTruck}/> Автомобили
                 </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-                <Nav.Link style={{color:"gray"}} eventKey="service">
+                <Nav.Link style={{color: "gray"}} active={pathname === `${url}/service`} href={`${url}/service`}>
                     <FontAwesomeIcon icon={faOilCan}/> Обслужвания
                 </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-                <Nav.Link style={{color:"gray"}} eventKey="repair">
+                <Nav.Link style={{color: "gray"}} active={pathname === `${url}/repair`} href={`${url}/repair`}>
                     <FontAwesomeIcon icon={faTools}/> Ремонти
                 </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-                <Nav.Link style={{color:"gray"}} eventKey="fueling">
+                <Nav.Link style={{color: "gray"}} active={pathname === `${url}/fueling`} href={`${url}/fueling`}>
                     <FontAwesomeIcon icon={faGasPump}/> Зарядки
                 </Nav.Link>
             </Nav.Item>

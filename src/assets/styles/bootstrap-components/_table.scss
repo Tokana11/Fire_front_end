@@ -1,0 +1,20 @@
+.table {
+  background: snow;
+  border: 1px solid black;
+  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.05), 0 6px 10px 0 rgba(0, 0, 0, 0.05);
+  align-self: auto;
+
+
+  th{
+    text-align: center;
+    vertical-align: middle;
+    background: #23dbb6;
+    border: 1px solid black;
+  }
+
+  td {
+    text-align: center;
+    vertical-align: middle;
+  }
+
+}

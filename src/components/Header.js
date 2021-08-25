@@ -25,13 +25,13 @@ const Header = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="#features">
+                        <Nav.Link href="/vehicle">
                             <FontAwesomeIcon icon={faTruck}/> Атомобили
                         </Nav.Link>
-                        <Nav.Link href="#pricing">
+                        <Nav.Link href="/equipment">
                             <FontAwesomeIcon icon={faUserShield}/> ПТВ
                         </Nav.Link>
-                        <Nav.Link href="#pricing">
+                        <Nav.Link href="/employees">
                             <FontAwesomeIcon icon={faUsers}/> Служители
                         </Nav.Link>
                     </Nav>
