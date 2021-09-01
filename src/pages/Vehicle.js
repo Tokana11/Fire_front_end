@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
 import {Button, Container, FormControl, InputGroup} from "react-bootstrap";
-import Cards from "../components/Cards";
+import Cards from "../components/vehicle/Cards";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPlus, faSearch, faTruck} from "@fortawesome/free-solid-svg-icons";
-import TruckModal from "../components/TruckModal";
+import AddTruckModal from "../components/vehicle/AddTruckModal";
 import {AXIOS} from "../constants";
 
 function Vehicle() {
@@ -21,6 +21,23 @@ function Vehicle() {
         });
     }, []);
 
+    function deleteVehicle(id) {
+        AXIOS.delete('/vehicle/' + id).then((response) => {
+            response.status === 200 ? setCards(cards.filter((card) => card.id !== id)) : alert(response.data.message)
+        }).catch((error) => {
+            alert(error)
+        })
+    }
+
+    function editVehicle(vehicle) {
+        console.log('Edit vehicle data: ', vehicle)
+
+    }
+
+    function addVehicle(vehicle) {
+        console.log("Add vehicle data:", vehicle)
+    }
+
     return (
         <>
             <InputGroup size="sm" className="mb-3">
@@ -37,7 +54,7 @@ function Vehicle() {
             <Container>
                 {
                     <Cards cards={cards.filter(({regNumber}) => regNumber.toLowerCase()
-                        .search(query.toLowerCase()) !== -1)}/>
+                        .search(query.toLowerCase()) !== -1)} editVehicle={editVehicle} deleteVehicle={deleteVehicle}/>
                 }
 
                 <Button className={"add-truck-btn"}
@@ -48,9 +65,11 @@ function Vehicle() {
                     <FontAwesomeIcon icon={faTruck}/>
                 </Button>
 
-                <TruckModal show={modalOpen}
-                            onHide={() => setModalOpen(false)}
-                />
+                {<AddTruckModal show={modalOpen}
+                                onHide={() => setModalOpen(false)}
+                                addVehicle={addVehicle}
+                />}
+
             </Container>
         </>
     );

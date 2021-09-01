@@ -17,7 +17,7 @@ import {
 const Header = () => {
 
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar collapseOnSelect expand="lg" bg="danger" variant="dark">
             <Container>
                 <Navbar.Brand href="/">
                     <FontAwesomeIcon icon={faFireAlt}/> ПБЗН

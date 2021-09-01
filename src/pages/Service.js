@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import ServiceTable from "../components/ServiceTable";
+import ServiceTable from "../components/service/ServiceTable";
 import {Container, FormControl, InputGroup} from "react-bootstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSearch} from "@fortawesome/free-solid-svg-icons";

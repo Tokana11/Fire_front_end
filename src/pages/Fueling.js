@@ -1,5 +1,5 @@
 import React, {Component} from "react"
-import FuelingsTable from "../components/FuelingsTable";
+import FuelingsTable from "../components/fueling/FuelingsTable";
 import {Container, FormControl, InputGroup} from "react-bootstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSearch} from "@fortawesome/free-solid-svg-icons";
@@ -48,9 +48,7 @@ class Fueling extends Component {
                     <InputGroup.Text>
                         <DateInput/> {" ..."}
                     </InputGroup.Text>
-
                 </InputGroup>
-
 
                 <Container className="mt-5">
                     <FuelingsTable/>

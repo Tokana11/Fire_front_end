@@ -29,7 +29,7 @@
             border-top: 3px solid transparent;
             border-bottom: 5px solid transparent;
             &:hover, &.active {
-                border-bottom: 5px solid #25cf2c;
+                border-bottom: 5px solid white;
                 color: white;
                 @include media-breakpoint-down(sm) {
                     border-bottom: 3px solid transparent;

@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import RepairTable from "../components/RepairTable";
+import RepairTable from "../components/repair/RepairTable";
 import {Container, FormControl, InputGroup} from "react-bootstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSearch} from "@fortawesome/free-solid-svg-icons";
